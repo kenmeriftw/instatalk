@@ -13,3 +13,12 @@
 //= require rails-ujs
 //= require turbolinks
 //= require_tree .
+//= require jquery3
+
+$(function() {
+  console.log('Document is loaded');
+});
+
+$(document).on("turbolinks:load", function() {
+  console.log('Document is loaded (turbolinks:load)');
+})
