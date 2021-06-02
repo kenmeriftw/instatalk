@@ -6,5 +6,5 @@ test:
 
 production:
   adapter: redis
-  url: redis://localhost:6379/1
+  url: redis://redistogo:8b48a7aabc101a71cf7ead2061612433@soapfish.redistogo.com:11390/
   channel_prefix: instatalk_production
