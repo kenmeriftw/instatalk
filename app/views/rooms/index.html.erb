@@ -9,3 +9,8 @@
 <div class="mt-2">
   <%= render 'rooms/form', room: @room %>
 </div>
+
+<h3>Our users:</h3>
+<ul class="mt-4 list-unstyled">
+  <%= render User.all %>
+</ul>
