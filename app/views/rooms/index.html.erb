@@ -10,7 +10,7 @@
   <%= render 'rooms/form', room: @room %>
 </div>
 
-<h3>Our users:</h3>
+<h3>Users are online now:</h3>
 <ul class="mt-4 list-unstyled">
-  <%= render User.all %>
+  <%= render User.online %>
 </ul>
