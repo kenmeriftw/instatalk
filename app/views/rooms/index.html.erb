@@ -12,5 +12,7 @@
 
 <h3>Users are online now:</h3>
 <ul class="mt-4 list-unstyled">
-  <%= render User.online %>
+  <% User.online.each do |user| %>
+    <%= render user %>
+  <% end %>
 </ul>
