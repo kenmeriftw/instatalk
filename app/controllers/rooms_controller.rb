@@ -1,13 +1,13 @@
 class RoomsController < ApplicationController
-  before_action :set_room, only: [:show]
+  before_action :set_room, only: %i[show]
 
   def index
     @rooms = Room.all
     @room = Room.new
+    @users = User.online.pluck(:nickname)
   end
 
-  def show
-  end
+  def show; end
 
   def create
     @room = Room.create!

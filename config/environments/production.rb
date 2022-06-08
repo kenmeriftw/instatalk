@@ -42,7 +42,7 @@ Rails.application.configure do
   # Mount Action Cable outside main process or domain
   # config.action_cable.mount_path = nil
   config.action_cable.url = 'wss://instatalk-07290.herokuapp.com//cable'
-  config.action_cable.allowed_request_origins = [ 
+  config.action_cable.allowed_request_origins = [
     'http://instatalk-07290.herokuapp.com/',
     'https://instatalk-07290.herokuapp.com/'
    ]

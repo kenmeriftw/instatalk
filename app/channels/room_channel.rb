@@ -10,17 +10,14 @@ class RoomChannel < ApplicationCable::Channel
   end
 
   def unsubscribed
-    # Any cleanup needed when channel is unsubscribed
-    logger.info "Unsubscribed to RoomChannel"
+    logger.info 'Unsubscribed from RoomChannel'
 
-    speak('message' => '* * * left the room * * *')
+    speak('message' => '* * * has left the room * * *')
   end
 
   def speak(data)
     logger.info "RoomChannel, speak: #{data.inspect}"
 
-    MessageService.new(
-      body: data['message'], room: @room, user: current_user
-    ).perform
+    MessageService.new(body: data['message'], room: @room, user: current_user).perform
   end
 end

@@ -8,23 +8,15 @@ jQuery(document).on 'turbolinks:load', ->
     message = event.target.value
     if event.keyCode is 13 && message != ''
       App.room.speak(message)
-      event.target.value = ""
+      event.target.value = ''
       event.preventDefault()
 
 createRoomChannel = (roomId) ->
-  App.room = App.cable.subscriptions.create {channel: "RoomChannel", roomId: roomId},
-    connected: ->
-      # Called when the subscription is ready for use on the server
-      console.log('Connected to RoomChannel')
-
-    disconnected: ->
-      # Called when the subscription has been terminated by the server
-      console.log('Disconnected from RoomChannel')
+  App.room = App.cable.subscriptions.create {channel: 'RoomChannel', roomId: roomId},
 
     received: (data) ->
-      # Called when there's incoming data on the websocket for this channel
-      console.log('Received message: ' + data['message'])
       $('#messages').append data['message']
+      $('#messages, #message').last()[0].scrollIntoView()
 
     speak: (message) ->
       @perform 'speak', message: message
